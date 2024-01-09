@@ -3,8 +3,9 @@ version: "3.7"
 services:
   envoy:
     container_name: envoy
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: envoyproxy/envoy:distroless-v1.28-latest
+    command: -c /etc/envoy/envoy.yaml
+    volumes:
+      - ./envoy.yaml:/etc/envoy/envoy.yaml:ro
     ports:
       - "8080:80"

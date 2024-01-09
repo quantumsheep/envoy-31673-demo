@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  envoy:
+    container_name: envoy
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
